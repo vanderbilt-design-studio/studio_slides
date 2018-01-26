@@ -4,7 +4,7 @@ do
 for i in *.{png,mp4}; do
 	echo $i
 	if [[ $i == *png ]]; then
-		fbi -d /dev/fb0 $i
+		fbi -a "$i" &
 		sleep 10
 		pkill -P $$
 		echo "BLAH"
