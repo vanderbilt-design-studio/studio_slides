@@ -1,6 +1,6 @@
 for i in *.{png,mp4}; do
 	if [[ $i == *png ]]; then
-		./blit $i &
+		mpv --loop $i &
 		sleep 10
 		kill %1
 		echo "BLAH"
