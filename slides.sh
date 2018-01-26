@@ -4,12 +4,12 @@ do
 for i in *.{png,mp4}; do
 	echo $i
 	if [[ $i == *png ]]; then
-		mpv --loop "$i" &
+		fbi -d /dev/fb0 $i
 		sleep 10
 		pkill -P $$
 		echo "BLAH"
 	elif [[ $i == *mp4 ]]; then
-		mpv "$i"
+		omxplayer "$i"
 		echo "BLEH"
 	fi
 done
