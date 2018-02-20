@@ -3,7 +3,7 @@
 #sleep 10
 ffmpeg \
 	-re \
-	-i 'Promo Window Video-1.mp4'\
+	-i 'http://192.168.1.16:8080/?action=stream'\
 	-i 'http://192.168.1.16:8080/?action=stream'\
 	-i 'http://192.168.1.17:8080/?action=stream'\
 	-i 'http://192.168.1.19:8080/?action=stream'\
@@ -18,4 +18,4 @@ ffmpeg \
 		[tmp2][lowermid] overlay=shortest=1:x=426:y=704 [tmp3];
 		[tmp3][lowerright] overlay=shortest=1:x=852:y=704
 	"\
-	-pix_fmt bgra -f fbdev /dev/fb0
+	-f mpegts 'udp://192.168.1.21:8080'
